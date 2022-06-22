@@ -1,4 +1,4 @@
-{
+export const db={
   "transactions": [
     {
       "item": "rent",
@@ -11,6 +11,12 @@
       "amount": 120,
       "type": "expense",
       "id": 5
+    },
+    {
+      "item": "jacket",
+      "amount": 200,
+      "type": "expense",
+      "id": 7
     },
     {
       "item": "salary",
@@ -29,12 +35,6 @@
       "amount": 150,
       "type": "expense",
       "id": 11
-    },
-    {
-      "item": "sippy cup",
-      "amount": 5,
-      "type": "expense",
-      "id": 12
     }
   ]
 }
