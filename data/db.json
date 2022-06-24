@@ -35,6 +35,12 @@
       "amount": 5,
       "type": "expense",
       "id": 12
+    },
+    {
+      "item": "rent income",
+      "amount": 2000,
+      "type": "income",
+      "id": 13
     }
   ]
 }
