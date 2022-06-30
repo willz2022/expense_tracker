@@ -5,13 +5,14 @@ import mongoose from "mongoose";
 import seedRouter from "./routes/seedRoutes.js";
 import transactionRouter from "./routes/transactionRoutes.js";
 import cors from 'cors'
+import corsOptions from './config/corsOptions.js';
 import connectDB from './config/dbConn.js';
 
 dotenv.config()
 connectDB()
 
 const app = express()
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 //app.use('/api/seed',seedRouter)
