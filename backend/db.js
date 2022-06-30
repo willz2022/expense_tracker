@@ -3,38 +3,32 @@ export const db={
     {
       "item": "rent",
       "amount": 1600,
-      "type": "expense",
-      "id": 3
+      "type": "expense"
     },
     {
       "item": "book",
       "amount": 120,
-      "type": "expense",
-      "id": 5
+      "type": "expense"
     },
     {
       "item": "jacket",
       "amount": 200,
-      "type": "expense",
-      "id": 7
+      "type": "expense"
     },
     {
       "item": "salary",
       "amount": 5000,
-      "type": "income",
-      "id": 9
+      "type": "income"
     },
     {
       "item": "Headphone",
       "amount": 400,
-      "type": "expense",
-      "id": 10
+      "type": "expense"
     },
     {
       "item": "Headphone",
       "amount": 150,
-      "type": "expense",
-      "id": 11
+      "type": "expense"
     }
   ]
 }

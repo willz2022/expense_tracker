@@ -24,7 +24,7 @@ const TransactionsList = () =>{
     const indexOfLastTransaction = currentPage*transactionsPerPage
     const indexOfFirstTransaction = indexOfLastTransaction-transactionsPerPage
     const currentTransactions = transactions.slice(indexOfFirstTransaction, indexOfLastTransaction)
-
+    //console.log(transactions)
 
     const handleClick = async(id) =>{
         try{
@@ -40,12 +40,11 @@ const TransactionsList = () =>{
         content =<p>Loading...</p>
     }else if(isSuccess){
         content=currentTransactions.map(transaction => 
-            <li className="list-group-item list-group-item-action list-group-item-light" key = {transaction.id}>
-
+            <li className="list-group-item list-group-item-action list-group-item-light" key = {transaction._id}>
                 <div className="row">
                     <div className="col-5 px-3 d-flex align-items-center"><p className="m-0">{transaction.item}</p></div>
                     <div className="col-5 px-3 d-flex align-items-center justify-content-end "><p className="m-0">${transaction.amount}</p></div>
-                    <button className="col-2 btn btn-outline-danger bi bi-trash3-fill" onClick={e=>handleClick(transaction.id)}></button>
+                    <button className="col-2 btn btn-outline-danger bi bi-trash3-fill" onClick={e=>handleClick(transaction._id)}></button>
                 </div>
             </li>
 

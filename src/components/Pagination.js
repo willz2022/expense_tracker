@@ -8,7 +8,6 @@ const Pagination = ({transactionsPerPage, totalTransactions,setCurrentPage}) =>{
 
     const handlePageChange=(id)=>{
         setCurrentPage(Number(id))
-
     }
 
     return(

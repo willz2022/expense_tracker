@@ -2,6 +2,7 @@ import {createSelector, createEntityAdapter} from '@reduxjs/toolkit'
 import { transactionsSlice } from '../api/apiSlice'
 
 const transactionsAdapter = createEntityAdapter({
+    selectId: (transaction) => transaction._id,
    sortComparer:(a,b)=>a.item.localeCompare(b.item),
 })
 
@@ -13,7 +14,8 @@ export const extendedTransactionsSlice = transactionsSlice.injectEndpoints({
         getTransactions: build.query({
             query:()=>'/transactions',
             transformResponse: responseData =>{
-                //console.log(responseData)
+               // console.log(`res data`, responseData)
+               console.log('entities',transactionsAdapter.setAll(initialState, responseData))
                 return transactionsAdapter.setAll(initialState, responseData)
             },
             providesTags:(result, error, arg)=>[
@@ -25,7 +27,7 @@ export const extendedTransactionsSlice = transactionsSlice.injectEndpoints({
             query:initialTransaction=>({
                 url:'/transactions',
                 method: 'POST',
-                body:{...initialTransaction, amount: Math.abs(Number(initialTransaction.amount))}
+                body:{...initialTransaction, amount: Math.abs(Number(initialTransaction.amount))}, 
             }),
             invalidatesTags:[
                 {type:'Transactions',id:'LIST'}

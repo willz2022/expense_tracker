@@ -1,19 +1,26 @@
+import dotenv from 'dotenv'
 import express from "express";
 import { db } from "./db.js";
 import mongoose from "mongoose";
-import dotenv from 'dotenv'
+import seedRouter from "./routes/seedRoutes.js";
+import transactionRouter from "./routes/transactionRoutes.js";
+import cors from 'cors'
+import connectDB from './config/dbConn.js';
 
 dotenv.config()
-mongoose.connect(process.env.MONGODB_URI).then(()=>{
-    console.log('connected to db')
-}).catch(err=>{console.log(err.message)})
-
+connectDB()
 
 const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+//app.use('/api/seed',seedRouter)
+app.use('/api/transactions', transactionRouter)
 
-app.get('/api/transactions',(req, res)=>{
+
+/* app.get('/api/transactions',(req, res)=>{
     res.send(db.transactions)
-})
+}) */
 
 const port = process.env.PORT || 5000
 

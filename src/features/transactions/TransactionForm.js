@@ -19,7 +19,7 @@ const ExpenseForm = () =>{
         }else if (Number(amount)<0){
             setType('expense')
         }
-        console.log(amount, type)
+       // console.log(amount, type)
     },[amount])
 
     const onAddTransactionClicked = async() =>{
